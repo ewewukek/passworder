@@ -67,6 +67,7 @@ listbox.select_set(0)
 listbox.focus_force()
 
 def key_enter(event):
+    xdotool('keyup', 'Return')
     idx = listbox.curselection()[0]
     window.withdraw()
     emit_password(items[idx])

@@ -66,16 +66,23 @@ listbox.pack()
 listbox.select_set(0)
 listbox.focus_force()
 
-def key_enter(event):
-    xdotool('keyup', 'Return')
+def use_item():
     idx = listbox.curselection()[0]
     window.withdraw()
     emit_password(items[idx])
     window.quit()
 
+def double_click(event):
+    use_item()
+
+def key_enter(event):
+    xdotool('keyup', 'Return')
+    use_item()
+
 def key_escape(event):
     window.quit()
 
+listbox.bind("<Double-Button-1>", double_click)
 window.bind("<Key-Return>", key_enter)
 window.bind("<Key-Escape>", key_escape)
 

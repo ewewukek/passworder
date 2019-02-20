@@ -31,7 +31,6 @@ window_exe = backtick('readlink', '-f', os.path.join('/proc', str(int(window_pid
 def emit_password(item):
     xdotool('windowactivate', window_id)
     time.sleep(0.05)
-    # xdotool('keyup', 'Control_L', 'Control_R', 'Alt_L', 'Alt_R', 'Shift_L', 'Shift_R', 'Super_L', 'Super_R')
     attrs = item.get_attributes()
     if 'login' in attrs:
         xdotool('type', attrs['login'])

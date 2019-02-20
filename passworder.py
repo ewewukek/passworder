@@ -29,8 +29,8 @@ window_pid = backtick('xdotool', 'getwindowfocus', 'getwindowpid')
 window_exe = backtick('readlink', '-f', os.path.join('/proc', str(int(window_pid)), 'exe'))
 
 def emit_password(item):
-    # xdotool('windowactivate', window_id)
-    # time.sleep(0.1)
+    xdotool('windowactivate', window_id)
+    time.sleep(0.05)
     # xdotool('keyup', 'Control_L', 'Control_R', 'Alt_L', 'Alt_R', 'Shift_L', 'Shift_R', 'Super_L', 'Super_R')
     attrs = item.get_attributes()
     if 'login' in attrs:
@@ -80,6 +80,7 @@ def key_enter(event):
     use_item()
 
 def key_escape(event):
+    xdotool('windowactivate', window_id)
     window.quit()
 
 listbox.bind("<Double-Button-1>", double_click)

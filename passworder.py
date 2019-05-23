@@ -10,6 +10,7 @@ import time
 
 browsers = {
     '/usr/lib/chromium/chromium',
+    '/usr/lib/firefox/firefox',
 }
 
 os.environ["DISPLAY"] = ':0.0'
